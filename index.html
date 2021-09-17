@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="./css/index.css" type="text/css" rel="stylesheet">
+    <link href="./css/pc.css" type="text/css" rel="stylesheet">
+    <link href="./css/laptop.css" type="text/css" rel="stylesheet">
+    <link href="./css/tab.css" type="text/css" rel="stylesheet">
+    <link href="./css/m.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div id=wrap>
+        <header>
+            <!-- 로고영역 -->
+            <h1 id="logo"></h1>
+            
+            <!-- 메뉴영역 -->
+            <!-- 1. m.css에서는 보이지 않는 영역 - display:none -->
+            <ul id="main_menu">
+                <li>
+                    <h3>메뉴1</h3>
+                    <ul class="submenu"> 
+                        <li>서브메뉴1</li>
+                        <li>서브메뉴2</li>
+                        <li>서브메뉴3</li>
+                        <li>서브메뉴4</li>
+                        <li>서브메뉴5</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>메뉴2</h3>
+                    <ul class="submenu"> 
+                        <li>서브메뉴1</li>
+                        <li>서브메뉴2</li>
+                        <li>서브메뉴3</li>
+                        <li>서브메뉴4</li>
+                        <li>서브메뉴5</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>메뉴3</h3>
+                    <ul class="submenu"> 
+                        <li>서브메뉴1</li>
+                        <li>서브메뉴2</li>
+                        <li>서브메뉴3</li>
+                        <li>서브메뉴4</li>
+                        <li>서브메뉴5</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>메뉴4</h3>
+                    <ul class="submenu"> 
+                        <li>서브메뉴1</li>
+                        <li>서브메뉴2</li>
+                        <li>서브메뉴3</li>
+                        <li>서브메뉴4</li>
+                        <li>서브메뉴5</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>메뉴5</h3>
+                    <ul class="submenu"> 
+                        <li>서브메뉴1</li>
+                        <li>서브메뉴2</li>
+                        <li>서브메뉴3</li>
+                        <li>서브메뉴4</li>
+                        <li>서브메뉴5</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- 2. 모바일에서만 보여지는 메뉴 - 
+            -> m.css 외 다른 미디어 조건에서의 css에서는 display:none -->
+            <div id="toggle_wrap">
+                <!-- 선택버튼 -->
+                <input type="checkbox" id="toggle">
+                <!-- 실제 버튼 역할 태그 -->
+                <!-- 라벨에 위에 id를 연결시켜주는 역할을 함  -->
+                <label for="toggle" id="toggle_label"></label> 
+                <!-- 숨김메뉴영역-->
+                <ul id="toggle_con">
+                    <li>메뉴1</li>
+                    <li>메뉴2</li>
+                    <li>메뉴3</li>
+                    <li>메뉴4</li>
+                    <li>메뉴5</li>
+                </ul>
+            </div>
+        </header>
+
+        <div id="slide_container"></div>
+
+        <section id="con_1">
+            <div class="in_box"></div>
+            <div class="in_box"></div>
+            <div class="in_box"></div>
+        </section>
+        <section id="con_2">
+            <div class="in_box"></div>
+            <div class="in_box"></div>
+            <div class="in_box"></div>
+            <div class="in_box"></div>
+            <div class="in_box"></div>
+            <div class="in_box"></div>
+        </section>
+        <footer></footer>
+    </div>
+</body>
+</html>

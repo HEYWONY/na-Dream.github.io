@@ -1,0 +1,151 @@
+@charset "utf-8";
+
+/* 화면 크기 1200이상일 경우 스타일 */
+@media all and (min-width:1200px) {
+    #wrap{
+        width: 1200px;
+        margin: 0 auto;
+        background-color: gray;
+    }
+
+    /* ********** 헤더영역 ********** */
+    header{
+        /* height: 80px; */
+        background-color: orangered;
+        padding: 15px 20px;
+        box-sizing: border-box; /* 내부에 맞춰짐 */
+    }
+
+    /* 자식 float 정렬시 생기는 문제점 해결 - 가상의 막내요소만들기 */
+    header::after{
+        content: "";
+        display: block;
+        /* -> width:auto 자동지정으로 부모의 가로를 꽉채움 */
+        clear: both;
+        /* -> float의 영향을 받지 않음 */
+    }
+
+    #logo {
+        width: 150px;
+        height: 50px;
+        background-color: royalblue;
+        float: left;
+    }
+
+    #main_menu{
+        width: 900px;
+        height: 50px;
+        background-color: cadetblue;
+        float: right;
+        /* overflow: hidden;  넘치면 안 보이게 */
+    } 
+
+    #main_menu > li {
+        width: calc(100% / 5);
+        float: left;
+        /* 텍스트관련 스타일은 자식들에게 상속가능 */
+        text-align: center; /* 중앙정렬 */
+        line-height: 50px;
+        top: 0;
+        left: 0;
+        /* 이거 두 개를 왜 한다고? */
+    }
+
+    #main_menu > li > h3 {
+        font-size: 20px;
+        font-weight: 500;
+        cursor: pointer;
+    }
+
+    /* 구조선택자:nth-child(홀수/짝수)
+    -> odd: 형제자매요소 중 홀수요소에 스타일 지정
+    -> even: 형제자매요수 중 짝수요소에 스타일 지정  */
+    #main_menu > li:nth-child(odd) > .submenu{
+        background-color: greenyellow;
+    }
+    #main_menu > li:nth-child(even) > .submenu{
+        background-color: aqua;
+    }
+    .submenu{
+        /* height: 200px; */
+        /* 0->200으로 변환 */
+        height: 0;
+        overflow: hidden; /* 안 보이지만 위치는 잡고 있어야 됨 */
+        top: 50px;
+        left: 0;
+        width: 100%;
+    }
+    .submenu > li {
+        height: 40px;
+        line-height: 40px;
+        font-size: 15px;
+        text-align: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+
+    .submenu > li:last-child{
+        /* 마지막 요소에는 검정색 선이 안 나오게 */
+        border-bottom: 0; 
+    }
+    
+    /* 모바일에서만 보이는 영역 */
+    #toggle_wrap{
+        display: none;
+    }
+
+  
+    
+    /* ********** 컨텐츠영역 ********** */
+    #slide_container{
+        height: 300px;
+        background-color: yellow;
+    }
+    
+    #con_1, #con_2{
+        /* height: 100px; */
+        /* 자식 float 정렬시 생기는 문제점 해결방법
+        -> 높이값 미지정 + overflow: hidden 설정  */
+        overflow: hidden;
+        background-color: aqua;
+    }
+
+    #slide_container, #con_1, #con_2 {
+        margin: 30px 0;
+        /* 마진병합현상이 존재
+        -> 인접한 블럭형식태그의 위아래가 겹칠 때 
+        -> 마진값이 합쳐짐 */
+    }
+
+    /* 한쪽 여백 지정 */
+    .in_box{
+        height: 100px;
+        float: left;
+        margin-right: 15px; /* 오른쪽여백 */
+        background-color: blue;
+    }
+
+    .in_box:last-child{
+        margin-right: 0; /* 제일 마지막 여백은 제거 */
+    }
+
+    /* 한 줄에 3개 - 필요한 여백 2개 */
+    #con_1 > .in_box{
+        width: calc((100% - 30px) / 3); 
+        /* calc() 함수 
+        -> css에서 속성값을 계산식으로 지정할 수 있도록 도와주는 함수
+        -> 사용가능한 연산자 : 덧셈(+), 뺄셈(-), 곱셈(*), 나눗셈(/)
+        -> 연산시 연산자와 수치값 사이에는 한 번의 공백이 필요함 */
+
+    }
+    /* 한 줄에 6개 - 필요한 여백 5개*/
+    #con_2 > .in_box{
+        width: calc((100% - 75px) / 6); 
+    }
+
+    footer{
+        height: 80px;
+        background-color: deeppink;
+    }
+}
